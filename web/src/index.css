@@ -1,0 +1,37 @@
+@import '@fontsource-variable/bricolage-grotesque';
+@import '@fontsource-variable/figtree';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { -webkit-tap-highlight-color: transparent; }
+  body { @apply bg-ground text-ink font-sans antialiased; font-size: 16px; line-height: 1.5; }
+  h1, h2, h3 { @apply font-display tracking-tight; font-variation-settings: 'wdth' 90; }
+  :focus-visible { outline: 3px solid #F2B233; outline-offset: 2px; border-radius: 10px; }
+  input, textarea, select { font-size: 16px; } /* prevents iOS zoom */
+}
+
+@layer components {
+  /* Chunky press-down key. The edge collapses when pressed. */
+  .key {
+    @apply inline-flex items-center justify-center gap-2 rounded-2xl px-5 min-h-[48px] font-semibold
+           border-2 transition-[transform,box-shadow] duration-75 select-none
+           active:translate-y-[3px] disabled:opacity-50 disabled:pointer-events-none;
+  }
+  .key-leaf     { @apply key bg-leaf text-white border-leaf-edge shadow-key-leaf active:shadow-[0_1px_0_0_#145536]; }
+  .key-marigold { @apply key bg-marigold text-ink border-marigold-edge shadow-key-marigold active:shadow-[0_1px_0_0_#B97E0B]; }
+  .key-brick    { @apply key bg-brick text-white border-brick-edge shadow-key-brick active:shadow-[0_1px_0_0_#7E2516]; }
+  .key-plain    { @apply key bg-white text-ink border-line shadow-key-plain active:shadow-[0_1px_0_0_#B8C9BE]; }
+
+  .tile { @apply bg-white border-2 border-line rounded-tag shadow-tile; }
+
+  .field { @apply w-full rounded-xl border-2 border-line bg-white px-4 py-3 text-ink placeholder:text-ink-soft/60
+                  focus:border-leaf focus:outline-none; }
+  .label { @apply block text-sm font-semibold text-ink mb-1.5; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}

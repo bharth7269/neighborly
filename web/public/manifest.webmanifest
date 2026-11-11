@@ -1,0 +1,10 @@
+{
+  "name": "Neighborly",
+  "short_name": "Neighborly",
+  "description": "Borrow and lend things with verified neighbours in your society.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#EEF3EF",
+  "theme_color": "#1F7A4D",
+  "icons": [{ "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }]
+}
